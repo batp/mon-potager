@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito } from "next/font/google";
-import { BottomNav } from "@/components/shared/BottomNav";
-import { PlaceholderBanner } from "@/components/shared/PlaceholderBanner";
-import { SidebarNav } from "@/components/shared/SidebarNav";
+import { AppShell } from "@/components/shared/AppShell";
 import { Providers } from "@/components/providers/Providers";
 import "./globals.css";
 
@@ -38,14 +36,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${nunito.variable} min-h-dvh font-sans antialiased`}>
         <Providers>
-          <PlaceholderBanner />
-          <div className="mx-auto flex min-h-dvh max-w-6xl">
-            <SidebarNav />
-            <div className="flex min-h-dvh flex-1 flex-col">
-              <main className="flex-1 px-4 pb-24 pt-4 md:pb-8">{children}</main>
-              <BottomNav />
-            </div>
-          </div>
+          <AppShell>{children}</AppShell>
         </Providers>
       </body>
     </html>

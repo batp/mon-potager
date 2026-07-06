@@ -61,6 +61,7 @@ wsl -e bash -c "ls -la /home/batp/projects/mon-potager/doc/"
 | Planification | Roadmap MVP 3 mois (MoSCoW) | [08-roadmap-mvp.md](./08-roadmap-mvp.md) |
 | Gouvernance | Décisions, questions ouvertes | [09-decisions-ouvertes.md](./09-decisions-ouvertes.md) |
 | Conformité | RGPD, sécurité, stores | [10-conformite-securite-rgpd.md](./10-conformite-securite-rgpd.md) |
+| Utilisateurs test | Comptes manuels Supabase | [11-utilisateurs-test-supabase.md](./11-utilisateurs-test-supabase.md) |
 
 ---
 
@@ -71,7 +72,7 @@ wsl -e bash -c "ls -la /home/batp/projects/mon-potager/doc/"
 | Horizon | MVP en **3 mois**, équipe **1-2 développeurs** |
 | Zone de lancement | **Francophonie** (FR, BE, CH, CA…) |
 | Modèle économique | **Freemium** (gratuit + abonnement premium) |
-| Authentification MVP | **Mode invité** en priorité, compte optionnel |
+| Authentification MVP | **Comptes de test manuels** Supabase + connexion email |
 | **Canal MVP** | **PWA** (web installable, responsive mobile-first) |
 | Stack frontend | **Next.js 15 + Serwist (PWA) + TypeScript + Tailwind** |
 | Backend | **Supabase** |

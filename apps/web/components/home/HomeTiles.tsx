@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Calendar, Sprout, Users, ArrowLeftRight } from "lucide-react";
 import { PlaceholderImage } from "@/components/placeholders/PlaceholderImage";
 import { PwaInstallPrompt } from "@/components/shared/PwaInstallPrompt";
+import { useAuth } from "@/components/providers/AuthProvider";
 
 const shortcuts = [
   {
@@ -34,12 +35,17 @@ const shortcuts = [
 ];
 
 export function HomeTiles() {
+  const { profile } = useAuth();
+  const greetingName = profile?.username;
+
   return (
     <div className="space-y-6">
       <PwaInstallPrompt />
 
       <section className="flex flex-col items-center gap-4 text-center">
-        <p className="text-2xl font-bold text-[#2D5A3D]">Bonjour ! ☀️</p>
+        <p className="text-2xl font-bold text-[#2D5A3D]">
+          {greetingName ? `Bonjour ${greetingName} ! ☀️` : "Bonjour ! ☀️"}
+        </p>
         <PlaceholderImage
           type="hero"
           name="Votre jardin"
@@ -84,16 +90,6 @@ export function HomeTiles() {
         </p>
         <p className="text-sm text-[#3D3229]/80">
           Pensez à pailler vos tomates avant les premières chaleurs.
-        </p>
-      </section>
-
-      <section className="rounded-2xl border border-dashed border-[#D4A574] bg-[#F5F0E8] p-4 text-center">
-        <p className="text-sm text-[#3D3229]">
-          Mode invité actif —{" "}
-          <Link href="/profil" className="font-semibold text-[#4A7C59] underline">
-            créez un compte
-          </Link>{" "}
-          pour sauvegarder votre potager.
         </p>
       </section>
     </div>

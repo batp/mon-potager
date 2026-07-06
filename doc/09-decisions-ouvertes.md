@@ -7,7 +7,7 @@
 | D-01 | 2026-07-06 | MVP en 3 mois, équipe 1-2 devs | Contrainte budget/temps | Porteur projet |
 | D-02 | 2026-07-06 | Zone francophonie au lancement | Marché cible | Porteur projet |
 | D-03 | 2026-07-06 | Modèle freemium | Monétisation | Porteur projet |
-| D-04 | 2026-07-06 | Mode invité prioritaire | Réduire friction onboarding | Porteur projet |
+| D-04 | 2026-07-06 | Mode invité prioritaire | ~~Réduire friction onboarding~~ **Reporté** — comptes manuels d'abord (D-12) | Porteur projet |
 | D-05 | 2026-07-06 | Stack Supabase (backend) | Recommandation technique | Équipe technique |
 | D-06 | 2026-07-06 | Français uniquement en MVP | i18n prête pour extension | Équipe technique |
 | D-07 | 2026-07-06 | **MVP = PWA web** (installable, responsive) | Tests proches du mobile réel | Porteur projet |
@@ -15,6 +15,7 @@
 | D-09 | 2026-07-06 | Stack frontend Next.js 15 + Tailwind | Adaptation au pivot web | Équipe technique |
 | D-10 | 2026-07-06 | Apps mobiles natives → Phase 2 | Expo React Native reporté | Équipe technique |
 | D-11 | 2026-07-06 | **MVP = PWA** (installable, offline basique, Web Push) | Tests en conditions proches du mobile réel | Porteur projet |
+| D-12 | 2026-07-06 | **Utilisateurs de test créés manuellement dans Supabase** | Phase dev/test sans inscription en ligne | Porteur projet |
 
 ---
 

@@ -11,8 +11,13 @@ MVP **PWA** (Next.js 15 + Serwist + Supabase) — projet **batp**.
 ```bash
 # Terminal WSL
 cd /home/batp/projects/mon-potager
-cp .env.example apps/web/.env.local   # puis renseigner Supabase
 
+# ⚠️ Next.js lit les variables dans apps/web/ (pas à la racine seule)
+cp .env.example apps/web/.env.local
+# ou si vous avez déjà .env à la racine :
+# cp .env apps/web/.env.local
+
+# Éditer apps/web/.env.local avec vos clés Supabase
 npm install
 npm run dev
 ```
@@ -35,14 +40,18 @@ Voir [doc/README.md](./doc/README.md)
 
 ## Sprint 1 — livré
 
-- [x] Monorepo npm workspaces
-- [x] Next.js 15 + Tailwind + Serwist (PWA)
-- [x] Navigation 5 sections (responsive)
-- [x] Design system + `PlaceholderImage`
-- [x] Catalogue 30 cultures (emoji placeholders)
-- [x] Migration SQL initiale
-- [ ] Auth Supabase (anonyme + email)
-- [ ] Connexion Supabase en local
+- [x] Monorepo npm workspaces + GitHub
+- [x] PWA Next.js 15 + Serwist
+- [x] Auth comptes test Supabase + routes protégées
+- [x] Navigation 5 sections responsive
+
+## Sprint 2 — en cours
+
+- [x] Builder potager (grille, zones, cultures)
+- [x] Sync Supabase (gardens, zones, crops)
+- [x] Fiche culture (lecture)
+- [ ] Édition culture (variété, dates, notes)
+- [ ] Redimensionnement zones
 
 ## Tester la PWA sur mobile
 
