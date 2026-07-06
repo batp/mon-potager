@@ -5,6 +5,7 @@ import { Calendar, Sprout, Users, ArrowLeftRight } from "lucide-react";
 import { PlaceholderImage } from "@/components/placeholders/PlaceholderImage";
 import { PwaInstallPrompt } from "@/components/shared/PwaInstallPrompt";
 import { useAuth } from "@/components/providers/AuthProvider";
+import { usePendingTaskCount } from "@/hooks/useTasks";
 
 const shortcuts = [
   {
@@ -36,6 +37,7 @@ const shortcuts = [
 
 export function HomeTiles() {
   const { profile } = useAuth();
+  const { data: pendingTasks } = usePendingTaskCount();
   const greetingName = profile?.username;
 
   return (
@@ -82,6 +84,21 @@ export function HomeTiles() {
             </Link>
           ),
         )}
+      </section>
+
+      <section className="rounded-2xl border border-[#7BAE7F]/40 bg-[#7BAE7F]/10 p-4">
+        <p className="text-sm text-[#2D5A3D]">
+          {pendingTasks && pendingTasks > 0 ? (
+            <>
+              <Link href="/calendrier" className="font-semibold underline">
+                {pendingTasks} tâche{pendingTasks > 1 ? "s" : ""} à faire
+              </Link>{" "}
+              aujourd&apos;hui ou en retard.
+            </>
+          ) : (
+            "Aucune tâche en attente — profitez de votre jardin ! 🌻"
+          )}
+        </p>
       </section>
 
       <section className="rounded-2xl border border-[#7BAE7F]/40 bg-white/80 p-4">

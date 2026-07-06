@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Calendar, Home, Sprout, User, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { NavTaskBadge } from "@/components/shared/NavTaskBadge";
 
 const navItems = [
   { href: "/", label: "Accueil", icon: Home },
@@ -35,7 +36,12 @@ export function BottomNav() {
                     : "text-[#3D3229]/70 hover:text-[#4A7C59]",
                 )}
               >
-                <Icon className="h-5 w-5" aria-hidden />
+                <span className="relative">
+                  <Icon className="h-5 w-5" aria-hidden />
+                  {href === "/calendrier" && (
+                    <NavTaskBadge className="absolute -top-1 -right-2" />
+                  )}
+                </span>
                 <span>{label}</span>
               </Link>
             </li>

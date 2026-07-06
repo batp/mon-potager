@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Calendar, Home, Sprout, User, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { NavTaskBadge } from "@/components/shared/NavTaskBadge";
 
 const navItems = [
   { href: "/", label: "Accueil", icon: Home },
@@ -38,6 +39,7 @@ export function SidebarNav() {
             >
               <Icon className="h-5 w-5" aria-hidden />
               {label}
+              {href === "/calendrier" && <NavTaskBadge />}
             </Link>
           );
         })}

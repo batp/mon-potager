@@ -4,6 +4,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/providers/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
+import { syncTasksForCrop } from "@/hooks/useTasks";
+import { CROP_CATALOG } from "@/constants/crops";
 import type { Crop, Zone } from "@/types/garden";
 
 export interface CropUpdates {
@@ -107,7 +109,7 @@ export function useCrop(cropId: string) {
       if (error) throw error;
       return normalizeCrop(data as Crop);
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       const previous = queryClient.getQueryData<{
         crop: Crop;
         zone: Zone;
@@ -122,6 +124,21 @@ export function useCrop(cropId: string) {
 
       if (user?.id) {
         queryClient.invalidateQueries({ queryKey: gardenKey });
+        const fromCatalog = CROP_CATALOG.find((c) => c.id === data.catalog_id);
+        const displayName =
+          fromCatalog?.nameFr ??
+          data.custom_name ??
+          previous?.crop.custom_name ??
+          "Culture";
+        try {
+          await syncTasksForCrop(user.id, data, displayName);
+          queryClient.invalidateQueries({ queryKey: ["tasks", user.id] });
+          queryClient.invalidateQueries({
+            queryKey: ["tasks", "pending-count", user.id],
+          });
+        } catch {
+          // Les tâches seront regénérées au prochain enregistrement
+        }
       }
     },
   });

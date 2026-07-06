@@ -52,7 +52,13 @@ Voir [doc/README.md](./doc/README.md)
 - [x] Sync Supabase (gardens, zones, crops)
 - [x] Fiche culture (lecture + édition variété, dates, notes)
 
-## Sprint 3 — à venir
+## Sprint 3 — en cours
+
+- [x] Calendrier mensuel + tâches du jour
+- [x] Tâches auto-générées depuis les cultures (semis, plantation, récolte)
+- [x] Tâches manuelles + marquer terminé
+- [x] Badge calendrier (tâches en attente)
+- [ ] Web Push rappels
 
 ## Tester la PWA sur mobile
 
