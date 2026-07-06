@@ -4,6 +4,7 @@ import { NextResponse, type NextRequest } from "next/server";
 const PUBLIC_ROUTES = ["/auth/login", "/auth/register", "/offline"];
 
 function isPublicRoute(pathname: string) {
+  if (pathname.startsWith("/api/cron")) return true;
   return PUBLIC_ROUTES.some(
     (route) => pathname === route || pathname.startsWith(`${route}/`),
   );

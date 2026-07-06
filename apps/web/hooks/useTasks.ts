@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/components/providers/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
+import { assertOnline } from "@/lib/network";
 import { buildTasksForCrop } from "@/lib/tasks/generateTasks";
 import type { Crop } from "@/types/garden";
 import type { NewTask, Task } from "@/types/task";
@@ -77,6 +78,7 @@ export function useTasks(viewMonth: Date) {
 
   const completeTask = useMutation({
     mutationFn: async (taskId: string) => {
+      assertOnline();
       const supabase = createClient()!;
       const { error } = await supabase
         .from("tasks")
@@ -89,6 +91,7 @@ export function useTasks(viewMonth: Date) {
 
   const uncompleteTask = useMutation({
     mutationFn: async (taskId: string) => {
+      assertOnline();
       const supabase = createClient()!;
       const { error } = await supabase
         .from("tasks")
@@ -101,6 +104,7 @@ export function useTasks(viewMonth: Date) {
 
   const addTask = useMutation({
     mutationFn: async (task: NewTask) => {
+      assertOnline();
       const supabase = createClient()!;
       const { error } = await supabase.from("tasks").insert({
         ...task,
@@ -115,6 +119,7 @@ export function useTasks(viewMonth: Date) {
 
   const deleteTask = useMutation({
     mutationFn: async (taskId: string) => {
+      assertOnline();
       const supabase = createClient()!;
       const { error } = await supabase.from("tasks").delete().eq("id", taskId);
       if (error) throw error;

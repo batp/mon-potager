@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { BottomNav } from "@/components/shared/BottomNav";
+import { OfflineBanner } from "@/components/shared/OfflineBanner";
 import { PlaceholderBanner } from "@/components/shared/PlaceholderBanner";
 import { SidebarNav } from "@/components/shared/SidebarNav";
 
@@ -22,6 +23,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <PlaceholderBanner />
+      <OfflineBanner />
       <div className="mx-auto flex min-h-dvh max-w-6xl">
         <SidebarNav />
         <div className="flex min-h-dvh flex-1 flex-col">

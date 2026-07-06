@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { PushSettings } from "@/components/profil/PushSettings";
 import { useAuth } from "@/components/providers/AuthProvider";
 
 function getInitials(name: string) {
@@ -57,6 +58,8 @@ export function ProfilContent() {
           {profile.bio}
         </p>
       )}
+
+      <PushSettings />
 
       <button
         type="button"

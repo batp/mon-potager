@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/components/providers/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
+import { assertOnline } from "@/lib/network";
 import { ensureProfile } from "@/lib/supabase/ensureProfile";
 import { CROP_CATALOG } from "@/constants/crops";
 import type { Crop, Garden, Zone, ZoneWithCrop } from "@/types/garden";
@@ -132,6 +133,7 @@ export function useGarden() {
 
   const addZone = useMutation({
     mutationFn: async () => {
+      assertOnline();
       const supabase = createClient()!;
       const garden = query.data!.garden;
       const zones = query.data!.zones;
@@ -179,6 +181,7 @@ export function useGarden() {
       zoneId: string;
       updates: Partial<Pick<Zone, "name" | "x" | "y" | "width" | "height" | "color">>;
     }) => {
+      assertOnline();
       const supabase = createClient()!;
       const payload = { ...updates };
       if (payload.x !== undefined) payload.x = Number(payload.x);
@@ -250,6 +253,7 @@ export function useGarden() {
 
   const deleteZone = useMutation({
     mutationFn: async (zoneId: string) => {
+      assertOnline();
       const supabase = createClient()!;
       const { error } = await supabase.from("zones").delete().eq("id", zoneId);
       if (error) throw error;
@@ -267,6 +271,7 @@ export function useGarden() {
       catalogId: number;
       nameFr: string;
     }) => {
+      assertOnline();
       const supabase = createClient()!;
       const zone = query.data?.zones.find((z) => z.id === zoneId);
       const catalogItem = CROP_CATALOG.find((c) => c.id === catalogId);

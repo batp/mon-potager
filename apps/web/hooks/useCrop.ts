@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/providers/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
+import { assertOnline } from "@/lib/network";
 import { syncTasksForCrop } from "@/hooks/useTasks";
 import { CROP_CATALOG } from "@/constants/crops";
 import type { Crop, Zone } from "@/types/garden";
@@ -88,6 +89,7 @@ export function useCrop(cropId: string) {
 
   const updateCrop = useMutation({
     mutationFn: async (updates: CropUpdates) => {
+      assertOnline();
       const validationError = validateCropUpdates(updates);
       if (validationError) throw new Error(validationError);
 
@@ -145,6 +147,7 @@ export function useCrop(cropId: string) {
 
   const deleteCrop = useMutation({
     mutationFn: async () => {
+      assertOnline();
       const supabase = createClient()!;
       const { error } = await supabase
         .from("crops")

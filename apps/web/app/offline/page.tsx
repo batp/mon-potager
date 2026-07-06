@@ -7,8 +7,8 @@ export default function OfflinePage() {
       <WifiOff className="h-12 w-12 text-[#4A7C59]" aria-hidden />
       <h1 className="text-xl font-bold text-[#2D5A3D]">Vous êtes hors ligne</h1>
       <p className="max-w-sm text-sm text-[#3D3229]/70">
-        Certaines pages restent accessibles grâce au cache PWA. Reconnectez-vous
-        pour synchroniser vos données.
+        Le potager et le calendrier restent consultables grâce au cache local.
+        Les modifications nécessitent une connexion.
       </p>
       <Link
         href="/"

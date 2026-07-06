@@ -19,3 +19,43 @@ const serwist = new Serwist({
 });
 
 serwist.addEventListeners();
+
+interface PushPayload {
+  title?: string;
+  body?: string;
+  url?: string;
+}
+
+self.addEventListener("push", (event) => {
+  const data = (event.data?.json() ?? {}) as PushPayload;
+  const title = data.title ?? "Mon Potager";
+  const body = data.body ?? "Vous avez des tâches à faire aujourd'hui";
+  const url = data.url ?? "/calendrier";
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body,
+      icon: "/icons/icon-192.png",
+      badge: "/icons/icon-192.png",
+      data: { url },
+    }),
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = (event.notification.data?.url as string) ?? "/calendrier";
+
+  event.waitUntil(
+    self.clients
+      .matchAll({ type: "window", includeUncontrolled: true })
+      .then((clientList) => {
+        for (const client of clientList) {
+          if ("focus" in client) {
+            return client.focus();
+          }
+        }
+        return self.clients.openWindow(url);
+      }),
+  );
+});
