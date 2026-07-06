@@ -45,13 +45,14 @@ Voir [doc/README.md](./doc/README.md)
 - [x] Auth comptes test Supabase + routes protégées
 - [x] Navigation 5 sections responsive
 
-## Sprint 2 — en cours
+## Sprint 2 — livré
 
 - [x] Builder potager (grille, zones, cultures)
+- [x] Déplacement et redimensionnement zones (souris + boutons)
 - [x] Sync Supabase (gardens, zones, crops)
-- [x] Fiche culture (lecture)
-- [ ] Édition culture (variété, dates, notes)
-- [ ] Redimensionnement zones
+- [x] Fiche culture (lecture + édition variété, dates, notes)
+
+## Sprint 3 — à venir
 
 ## Tester la PWA sur mobile
 
