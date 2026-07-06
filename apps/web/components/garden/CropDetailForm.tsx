@@ -155,18 +155,29 @@ function CropEditor({
           <Field label="Variété">
             <input
               type="text"
-              list={varietyHints.length > 0 ? "variety-hints" : undefined}
               value={variety}
               onChange={(e) => setVariety(e.target.value)}
               placeholder="Ex. Cœur de bœuf"
               className="w-full rounded-xl border border-[#E8DFD0] px-3 py-2 text-sm"
             />
             {varietyHints.length > 0 && (
-              <datalist id="variety-hints">
+              <div className="mt-2 flex flex-wrap gap-1.5">
                 {varietyHints.map((hint) => (
-                  <option key={hint} value={hint} />
+                  <button
+                    key={hint}
+                    type="button"
+                    onClick={() => setVariety(hint)}
+                    className={cn(
+                      "rounded-lg border px-2.5 py-1 text-xs font-medium transition-colors",
+                      variety === hint
+                        ? "border-[#4A7C59] bg-[#7BAE7F]/25 text-[#2D5A3D]"
+                        : "border-[#E8DFD0] bg-[#F5F0E8] text-[#3D3229] hover:bg-[#E8DFD0]/60",
+                    )}
+                  >
+                    {hint}
+                  </button>
                 ))}
-              </datalist>
+              </div>
             )}
           </Field>
 
