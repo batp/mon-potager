@@ -1,0 +1,22 @@
+node_modules/
+.next/
+dist/
+out/
+.env
+.env.local
+.env*.local
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.tsbuildinfo
+
+# PWA build artifacts (Serwist)
+apps/web/public/sw.js
+apps/web/public/sw.js.map
+apps/web/public/swe-worker-*.js
+apps/web/public/workbox-*.js
+
+# Keep PWA icons (generated placeholders are committed)
+!apps/web/public/icons/
