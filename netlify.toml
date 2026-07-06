@@ -1,0 +1,25 @@
+# Mon Potager — déploiement Netlify (monorepo npm workspaces)
+# UI Netlify : Base directory = / (racine), Package directory = apps/web
+
+[build]
+  command = "npm run build"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--include=dev"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Service worker PWA (Serwist) — pas de cache agressif
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
