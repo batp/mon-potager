@@ -25,7 +25,9 @@ export function SidebarNav() {
       </div>
       <nav className="flex flex-1 flex-col gap-1 p-3" aria-label="Navigation principale">
         {navItems.map(({ href, label, icon: Icon }) => {
-          const active = pathname === href;
+          const active =
+            pathname === href ||
+            (href !== "/" && pathname.startsWith(`${href}/`));
           return (
             <Link
               key={href}

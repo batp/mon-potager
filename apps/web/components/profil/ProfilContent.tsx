@@ -2,16 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { PushSettings } from "@/components/profil/PushSettings";
+import { ProfileForm } from "@/components/profil/ProfileForm";
+import { Avatar } from "@/components/shared/Avatar";
 import { useAuth } from "@/components/providers/AuthProvider";
-
-function getInitials(name: string) {
-  return name
-    .split(/[\s_]+/)
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 export function ProfilContent() {
   const { user, profile, loading, signOut } = useAuth();
@@ -41,9 +34,11 @@ export function ProfilContent() {
       </header>
 
       <div className="flex items-center gap-4 rounded-2xl bg-white/80 p-4 shadow-sm">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#7BAE7F] text-xl font-bold text-white">
-          {getInitials(displayName)}
-        </div>
+        <Avatar
+          name={displayName}
+          url={profile?.avatar_url}
+          size="lg"
+        />
         <div>
           <p className="font-semibold text-[#3D3229]">{displayName}</p>
           <p className="text-sm text-[#3D3229]/60">{user.email}</p>
@@ -58,6 +53,8 @@ export function ProfilContent() {
           {profile.bio}
         </p>
       )}
+
+      <ProfileForm />
 
       <PushSettings />
 
