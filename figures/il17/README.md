@@ -1,0 +1,69 @@
+# Figures IL-17 — Noack & Miossec
+
+PowerPoint figures (topo type Servier Medical Art) summarizing the review framework:
+
+**Noack & Miossec** — *Cellular and molecular interactions regulating IL-17 production and function in chronic inflammation affecting joints*.
+
+## 1. Production / function overview
+
+- `Figure_IL17_production_fonction_Servier.pptx`
+  - **Slide 1** — French schematic
+  - **Slide 2** — English schematic
+  - **Slide 3** — French figure legend
+
+| Zone | Content |
+|------|---------|
+| **Above** | Regulation of **production**: inducing cytokines, cellular interactions (podoplanin, truncated CD74), environment, negative regulators |
+| **Center** | **IL-17A/F** → **IL-17RA + IL-17RC** → ACT1 / NF-κB / MAPK / C/EBP |
+| **Below** | Regulation of **function**: TNF synergy, autoantibodies, IL-25 antagonism, tissue context |
+
+## 2. Cytokine interactions (positive / negative)
+
+- `Figure_IL17_cytokines_pos_neg.pptx`
+  - **Slide 1** — French schematic
+  - **Slide 2** — English schematic
+  - **Slide 3** — French figure legend
+
+| Zone | Content |
+|------|---------|
+| **Left (+)** | Inducing / amplifying cytokines: TGF-β+IL-6, IL-1β, IL-23, IL-21; function synergy with TNF / IL-1β / IL-22 |
+| **Center** | Th17 → **IL-17A/F** → **IL-17RA+IL-17RC** |
+| **Right (−)** | Inhibitory cytokines: IL-4, IL-13, IL-10; IL-25 antagonism; natural anti–IL-17 autoantibodies |
+
+## 3. Cellular interactions (positive / negative)
+
+- `Figure_IL17_interactions_cellulaires.pptx`
+  - **Slide 1** — French schematic (cells drawn in contact)
+  - **Slide 2** — English schematic
+  - **Slide 3** — French figure legend
+
+| Zone | Content |
+|------|---------|
+| **Left (+)** | Th17 / γδ T / ILC3 ↔ synoviocyte (podoplanin, truncated CD74); DC / macrophage → Th17; local recruitment loop |
+| **Center** | Th17 → **IL-17A/F** + contact molecules |
+| **Right (−)** | Treg ↔ Th17; M2 → ↓Th17; neutrophil–macrophage feedback ↓IL-23; pdpn–CLEC2 |
+
+## 4. Therapeutic options at multiple levels
+
+- `Figure_IL17_options_therapeutiques.pptx`
+  - **Slides 1–2** — FR/EN hub around **IL-17 / IL-17R** with 6 therapeutic levels
+  - **Slides 3–4** — FR/EN cascade intervention map
+  - **Slide 5** — French figure legend
+
+| Level | Content |
+|------|---------|
+| **N1** | Upstream Th17 production (anti–IL-23, JAKi, DC, microbiota) |
+| **N2** | Cytokine neutralization (secukinumab, bimekizumab) |
+| **N3** | Receptor blockade (brodalumab) |
+| **N4** | Intracellular signaling (ACT1–TRAF6) |
+| **N5** | Synergies / multi-target (IL-17 + TNF) |
+| **N6** | Emerging (podoplanin/CD74, miRNAs, lncRNAs) |
+
+## Regenerate
+
+```bash
+python3 figures/il17/generate_figure_il17.py
+python3 figures/il17/generate_figure_il17_cytokines.py
+python3 figures/il17/generate_figure_il17_cellules.py
+python3 figures/il17/generate_figure_il17_therapies.py
+```
