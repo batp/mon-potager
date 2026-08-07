@@ -43,10 +43,27 @@ PowerPoint figures (topo type Servier Medical Art) summarizing the review framew
 | **Center** | Th17 → **IL-17A/F** + contact molecules |
 | **Right (−)** | Treg ↔ Th17; M2 → ↓Th17; neutrophil–macrophage feedback ↓IL-23; pdpn–CLEC2 |
 
+## 4. Therapeutic options at multiple levels
+
+- `Figure_IL17_options_therapeutiques.pptx`
+  - **Slides 1–2** — FR/EN hub around **IL-17 / IL-17R** with 6 therapeutic levels
+  - **Slides 3–4** — FR/EN cascade intervention map
+  - **Slide 5** — French figure legend
+
+| Level | Content |
+|------|---------|
+| **N1** | Upstream Th17 production (anti–IL-23, JAKi, DC, microbiota) |
+| **N2** | Cytokine neutralization (secukinumab, bimekizumab) |
+| **N3** | Receptor blockade (brodalumab) |
+| **N4** | Intracellular signaling (ACT1–TRAF6) |
+| **N5** | Synergies / multi-target (IL-17 + TNF) |
+| **N6** | Emerging (podoplanin/CD74, miRNAs, lncRNAs) |
+
 ## Regenerate
 
 ```bash
 python3 figures/il17/generate_figure_il17.py
 python3 figures/il17/generate_figure_il17_cytokines.py
 python3 figures/il17/generate_figure_il17_cellules.py
+python3 figures/il17/generate_figure_il17_therapies.py
 ```
