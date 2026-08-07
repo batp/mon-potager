@@ -30,9 +30,23 @@ PowerPoint figures (topo type Servier Medical Art) summarizing the review framew
 | **Center** | Th17 → **IL-17A/F** → **IL-17RA+IL-17RC** |
 | **Right (−)** | Inhibitory cytokines: IL-4, IL-13, IL-10; IL-25 antagonism; natural anti–IL-17 autoantibodies |
 
+## 3. Cellular interactions (positive / negative)
+
+- `Figure_IL17_interactions_cellulaires.pptx`
+  - **Slide 1** — French schematic (cells drawn in contact)
+  - **Slide 2** — English schematic
+  - **Slide 3** — French figure legend
+
+| Zone | Content |
+|------|---------|
+| **Left (+)** | Th17 / γδ T / ILC3 ↔ synoviocyte (podoplanin, truncated CD74); DC / macrophage → Th17; local recruitment loop |
+| **Center** | Th17 → **IL-17A/F** + contact molecules |
+| **Right (−)** | Treg ↔ Th17; M2 → ↓Th17; neutrophil–macrophage feedback ↓IL-23; pdpn–CLEC2 |
+
 ## Regenerate
 
 ```bash
 python3 figures/il17/generate_figure_il17.py
 python3 figures/il17/generate_figure_il17_cytokines.py
+python3 figures/il17/generate_figure_il17_cellules.py
 ```
